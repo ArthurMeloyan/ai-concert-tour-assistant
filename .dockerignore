@@ -1,0 +1,11 @@
+.git/
+chroma_db/
+.env
+.venv/
+venv/ 
+env/
+.devcontainer/
+__pycache__/
+*.pyc
+.DS_Store
+README.md
