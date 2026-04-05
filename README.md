@@ -1,3 +1,13 @@
+---
+title: Concert Tour Assistant
+emoji: 🎵
+colorFrom: purple
+colorTo: blue
+sdk: docker
+pinned: false
+---
+
+
 # Concert Tour Assistant
 
 A RAG-based Q&A chatbot for concert tour information, powered by Google Gemini.
