@@ -10,7 +10,7 @@ if not GEMINI_API_KEY:
     raise ValueError("GEMINI_API_KEY is not set in .env")
 
 CHROMA_PERSIST_DIR = "./chroma_db"
-EMBEDDING_MODEL = "models/text-embedding-004"
+EMBEDDING_MODEL = "models/gemini-embedding-001"
 GENERATION_MODEL = "gemini-2.5-flash"
 
 _vectordb = None
