@@ -1,28 +1,24 @@
-import os
-from huggingface_hub import InferenceClient
-from dotenv import load_dotenv
+import google.generativeai as genai
+from config import GEMINI_API_KEY, GENERATION_MODEL
 
-load_dotenv()
+genai.configure(api_key=GEMINI_API_KEY)
 
-HF_TOKEN = os.getenv("HF_API_TOKEN")
-print(HF_TOKEN)
-assert HF_TOKEN, "Hugging Face API token is not set!"
+_model = None
 
-client = InferenceClient(
-    model='HuggingFaceH4/zephyr-7b-beta',
-    token=HF_TOKEN
-)
+
+def _get_model():
+    global _model
+    if _model is None:
+        _model = genai.GenerativeModel(
+            model_name=GENERATION_MODEL,
+            system_instruction="You are a helpful assistant for answering questions about concert tours.",
+        )
+    return _model
 
 
 def generate_answer(prompt: str) -> str:
     try:
-        completion = client.chat.completions.create(
-            model="HuggingFaceH4/zephyr-7b-beta",
-            messages=[
-                {"role": "system", "content": "You are a helpful assistant for answering questions about concert tours."},
-                {"role": "user", "content": prompt},
-            ],
-        )
-        return completion.choices[0].message.content.strip()
+        response = _get_model().generate_content(prompt)
+        return response.text.strip()
     except Exception as e:
         return f"Error during generation: {str(e)}"

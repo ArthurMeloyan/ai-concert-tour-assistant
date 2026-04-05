@@ -1,12 +1,8 @@
-from langchain_huggingface import HuggingFaceEmbeddings
-from langchain_chroma import Chroma
-from .summarizer import summarize_text
-
-embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
-vectordb = Chroma(persist_directory="./chroma_db", embedding_function=embeddings)
+from config import get_vectordb
+from .chunking import chunk_text
 
 
 def add_document(text: str, doc_id: str):
-    vectordb.add_texts([text], ids=[doc_id])
-
-    
+    chunks = chunk_text(text)
+    ids = [f"{doc_id}_{i}" for i in range(len(chunks))]
+    get_vectordb().add_texts(chunks, ids=ids)
