@@ -1,8 +1,7 @@
 import streamlit as st
-from online_search import search_concerts
 from ingestion import is_revelant, add_document, summarize_text
 import uuid
-from rag import answer_query
+from rag.qa import answer_query
 
 def run_app():
 
@@ -37,11 +36,7 @@ def run_app():
             with st.spinner("Searching and generating answer..."):
                 answer = answer_query(user_question)
                 st.markdown(f"**Answer:** {answer}")
-        elif artist_name.strip():
-            with st.spinner("Searching concerts online..."):
-                answer = search_concerts(artist_name)
-                st.markdown(f'**Online search result:** {answer}')
         else:
-            st.warning("Please, enter a question or a musician/band name")
+            st.warning("Please, enter a question")
 
                 
