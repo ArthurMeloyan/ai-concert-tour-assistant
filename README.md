@@ -35,7 +35,7 @@ main.py            — entry point
 ### Technologies
 
 - Python 3.11+
-- Google Gemini (`gemini-2.5-flash` for generation, `text-embedding-004` for embeddings)
+- Google Gemini (`gemini-2.5-flash` for generation, `gemini-embedding-001` for embeddings)
 - LangChain (Google GenAI + Chroma integrations)
 - ChromaDB for local vector storage
 - Streamlit for UI
@@ -92,3 +92,21 @@ Open http://localhost:8501 in your browser.
 - **Lazy initialization** — models and DB connections load on first use, not at import time.
 - **Shared vectordb singleton** — one Chroma instance used by both ingestion and retrieval, avoiding duplicate model loading.
 - **Environment variables** — API keys stay out of source code.
+
+---
+
+## Docker
+
+### Build and run
+
+```bash
+docker-compose up --build -d
+```
+
+### Stop
+
+```bash
+docker-compose down
+```
+
+The `docker-compose.yml` mounts `./chroma_db` as a volume so vector data persists across container restarts. The `.env` file is injected via `env_file` — it is never baked into the image.
