@@ -53,7 +53,7 @@ Additionally, there is an optional **Bonus Feature**: if no documents are upload
 
 ```bash
 git clone https://github.com/ArthurMeloyan/ai-concert-tour-assistant.git
-cd ProvectusInternship_ArthurMeloyan
+cd ai-concert-tour-assistant
 ```
 ### 2. Install dependencies
 ```
