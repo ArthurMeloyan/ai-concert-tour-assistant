@@ -20,9 +20,7 @@ def run_app():
         else:
             doc_id = str(uuid.uuid4())
             add_document(user_input, doc_id)
-            chunks = chunk_text(user_input)
             st.success("✅ Document added to the database!")
-            st.info(f"📌 Split into {len(chunks)} chunk(s) for indexing.")
 
     st.markdown("---")
     st.header("❓ Ask a Question")
