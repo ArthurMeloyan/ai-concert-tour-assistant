@@ -1,4 +1,4 @@
-def is_revelant(text: str) -> bool:
+def is_relevant(text: str) -> bool:
     keywords = ["tour", "concert", "venue", "performance", "guest", "schedule", "show", "artist"]
     text_lower = text.lower()
 
