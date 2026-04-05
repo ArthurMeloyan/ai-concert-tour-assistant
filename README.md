@@ -52,7 +52,7 @@ Additionally, there is an optional **Bonus Feature**: if no documents are upload
 ### 1. Clone repository
 
 ```bash
-git clone https://github.com/ArthurMeloyan/ProvectusInternship_ArthurMeloyan.git
+git clone https://github.com/ArthurMeloyan/ai-concert-tour-assistant.git
 cd ProvectusInternship_ArthurMeloyan
 ```
 ### 2. Install dependencies
