@@ -1,11 +1,7 @@
-transformers
-torch
-spacy
-sentence-transformers
-langchain
-chromadb
-langchain-huggingface
+google-generativeai
+langchain-google-genai
 langchain-chroma
+langchain-text-splitters
+chromadb
 streamlit
-requests
 python-dotenv
